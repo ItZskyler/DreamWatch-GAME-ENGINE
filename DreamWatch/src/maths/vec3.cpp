@@ -46,7 +46,7 @@ namespace engine {
 	}
 
 	std::ostream& operator<<(std::ostream& stream, const vec3& vector) {
-		stream << "vec3: (" << vector.x << ", " << vector.y << ")";
+		stream << "vec3: (" << vector.x << ", " << vector.y <<  ", " << vector.z <<")";
 		return stream;
 	}
 }
