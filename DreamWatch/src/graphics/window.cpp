@@ -3,7 +3,7 @@
 namespace engine {
 	GLFWwindow* window;
 
-	const int Window::WIDTH = 1080;
+	const int Window::WIDTH = 1260;
 	const int Window::HEIGHT = 820;
 
 	void GetFPS()
@@ -36,9 +36,10 @@ namespace engine {
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_ANY_PROFILE);
 		glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-		window = glfwCreateWindow(getWidth(), getHeight(), "DreanWatch", nullptr, nullptr);
-		std::cout << "Width: " << getWidth() << ", " << " Height: " << getHeight() << std::endl;
+		window = glfwCreateWindow(getWidth(), getHeight(), "DreamWatch", nullptr, nullptr);
 		glViewport(0, 0, getWidth(), getHeight());
+
+		//glfwSetWindowSizeCallback();
 
 		if (!window) {
 			Window::~Window();
@@ -51,13 +52,13 @@ namespace engine {
 				Window::~Window();
 				return;
 			}
-			glfwPollEvents();
-			glClear(GL_COLOR_BUFFER_BIT);
-
 
 			Renderer::Renderer();
 			glfwSwapBuffers(window);
+
+			std::cout << "Width: " << getWidth() << ", " << " Height: " << getHeight() << std::endl;
 			GetFPS();
+			system("cls");
 		}
 
 		Window::~Window();
